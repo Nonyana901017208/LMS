@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="450" prefWidth="700" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="com.example.javafxgroupassignment.ViewInstructorsController">
+    <Label layoutX="20" layoutY="20" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="All Instructor Assignments" />
+
+    <Label layoutX="20" layoutY="50" text="Search:" />
+    <TextField fx:id="searchField" layoutX="70" layoutY="45" prefWidth="250" promptText="e.g Thabo" />
+
+    <TableView fx:id="instructorTable" layoutX="20" layoutY="80" prefHeight="300" prefWidth="660">
+        <columns>
+            <TableColumn fx:id="nameCol" prefWidth="200" text="Instructor" />
+            <TableColumn fx:id="courseCol" prefWidth="440" text="Assigned Course" />
+        </columns>
+    </TableView>
+
+    <Label fx:id="countLabel" layoutX="20" layoutY="390" />
+
+    <Button layoutX="600" layoutY="390" onAction="#handleBack" text="Back to Enrollments" />
+    <Button layoutX="450" layoutY="390" onAction="#exportPDF" text="Export to PDF" />
+</AnchorPane>

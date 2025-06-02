@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxgroupassignment.EnrollStudentsController">
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #0f0f0f, #1a1a1a, #292929);">
+         <children>
+            <Label layoutX="18.0" layoutY="20.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #39ff14;" text="Admin Dashboard" />
+            <Button layoutX="36.0" layoutY="121.0" onAction="#handleManageUsers" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #39ff14;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #39ff14, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Manage Users" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="36.0" layoutY="171.0" onAction="#handleManageCourses" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #00ffff;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #00ffff, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Manage Courses" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="36.0" layoutY="221.0" onAction="#handleAssignInstructors" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #ff00ff;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #ff00ff, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Assign Instructors" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="36.0" layoutY="271.0" onAction="#handleEnrollStudents" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #ff9900;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #ff9900, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Enroll Students" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="36.0" layoutY="321.0" onAction="#handleViewEnrollments" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #00ffcc;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #00ffcc, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="View Enrollments" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="30.0" layoutY="448.0" onAction="#handleLogout" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #ff4d4d;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #ff4d4d, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Logout" />
+            <Button layoutX="20.0" layoutY="73.0" onAction="#handleBack" style="-fx-background-color: #1a1a1a; -fx-text-fill: red; -fx-font-weight: bold; -fx-effect: dropshadow(three-pass-box, red, 10, 0.7, 0, 0); -fx-background-radius: 10;" text="Dashbaord" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="500.0" prefWidth="500.0">
+          <children>
+              <Label layoutX="20" layoutY="20" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Enroll Students to Courses" />
+      
+              <Label layoutX="20" layoutY="70" text="Select Student:" />
+              <ComboBox fx:id="studentComboBox" layoutX="150" layoutY="65" prefWidth="200" />
+      
+              <Label layoutX="20" layoutY="110" text="Select Course:" />
+              <ComboBox fx:id="courseComboBox" layoutX="150" layoutY="105" prefWidth="200" />
+      
+              <Button layoutX="370" layoutY="65" onAction="#enrollStudent" text="Enroll" />
+              <Button layoutX="20" layoutY="180" onAction="#handleBack" text="Back to Dashboard" />
+          </children>
+      </AnchorPane>
+   </children>
+</HBox>

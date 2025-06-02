@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxgroupassignment.ManageUsersController">
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #0f0f0f, #1a1a1a, #292929);">
+         <children>
+            <Label layoutX="18.0" layoutY="20.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #39ff14;" text="Admin Dashboard" />
+            <Button layoutX="36.0" layoutY="121.0" onAction="#handleManageUsers" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #39ff14;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #39ff14, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Manage Users" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="36.0" layoutY="171.0" onAction="#handleManageCourses" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #00ffff;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #00ffff, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Manage Courses" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="36.0" layoutY="221.0" onAction="#handleAssignInstructors" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #ff00ff;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #ff00ff, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Assign Instructors" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="36.0" layoutY="271.0" onAction="#handleEnrollStudents" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #ff9900;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #ff9900, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Enroll Students" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="36.0" layoutY="321.0" onAction="#handleViewEnrollments" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #00ffcc;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #00ffcc, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="View Enrollments" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Button layoutX="30.0" layoutY="448.0" onAction="#handleLogout" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #ff4d4d;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #ff4d4d, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Logout" />
+            <Button layoutX="20.0" layoutY="73.0" onAction="#handleBack" style="-fx-background-color: #1a1a1a; -fx-text-fill: red; -fx-font-weight: bold; -fx-effect: dropshadow(three-pass-box, red, 10, 0.7, 0, 0); -fx-background-radius: 10;" text="Dashbaord" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0">
+          <children>
+              <Label layoutX="240.0" layoutY="7.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Manage Users" />
+      
+                    <TableView fx:id="userTable" layoutX="20" layoutY="60" prefHeight="150" prefWidth="455.0">
+                  <columns>
+                      <TableColumn fx:id="idColumn" prefWidth="25.0" text="ID" />
+                      <TableColumn fx:id="nameColumn" prefWidth="100" text="Name" />
+                      <TableColumn fx:id="emailColumn" prefWidth="150" text="Email" />
+                      <TableColumn fx:id="usernameColumn" prefWidth="100" text="Username" />
+                      <TableColumn fx:id="roleColumn" prefWidth="80" text="Role" />
+                  </columns>
+              </TableView>
+      
+                                                                    <TextField fx:id="nameField" layoutX="20.0" layoutY="230.0" promptText="Full Name" />
+              <TextField fx:id="emailField" layoutX="20.0" layoutY="270.0" promptText="Email Address" />
+              <TextField fx:id="usernameField" layoutX="20.0" layoutY="310.0" promptText="Username" />
+              <PasswordField fx:id="passwordField" layoutX="20.0" layoutY="351.0" promptText="Password" />
+              <ComboBox fx:id="roleComboBox" layoutX="20.0" layoutY="395.0" promptText="Select Role" />
+      
+                                                                    <Button layoutX="250.0" layoutY="239.0" onAction="#handleAddUser" prefWidth="99.0" text="Add User">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+              <Button layoutX="248.0" layoutY="294.0" onAction="#handleUpdateUser" text="Update User">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+              <Button layoutX="251.0" layoutY="348.0" onAction="#handleDeleteUser" text="Delete User">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+          </children>
+      </AnchorPane>
+   </children>
+</HBox>

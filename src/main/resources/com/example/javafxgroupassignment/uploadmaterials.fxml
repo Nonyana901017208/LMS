@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxgroupassignment.UploadMaterialsController">
+   <children>
+      <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" style="-fx-background-color: #2c3e50;">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="30.0" spacing="20.0">
+               <children>
+                  <Label fx:id="welcomeLabel" style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="Welcome!" />
+                  <Button onAction="#handleBackToDashboard" style="-fx-font-size: 14px; -fx-background-color: #34495e; -fx-text-fill: white; -fx-pref-width: 180px;" text="Dashboard" />
+                  <Button onAction="#handleViewCourses" style="-fx-font-size: 14px; -fx-background-color: #34495e; -fx-text-fill: white; -fx-pref-width: 180px;" text="View My Courses" />
+                  <Button onAction="#handleUploadMaterials" style="-fx-font-size: 14px; -fx-background-color: #34495e; -fx-text-fill: white; -fx-pref-width: 180px;" text="Upload Materials" />
+                  <Button onAction="#handleViewStudents" style="-fx-font-size: 14px; -fx-background-color: #34495e; -fx-text-fill: white; -fx-pref-width: 180px;" text="View Students" />
+                  <Button onAction="#handleLogout" style="-fx-font-size: 14px; -fx-background-color: #e74c3c; -fx-text-fill: white; -fx-pref-width: 180px;" text="Logout" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0">
+         <children>
+            <AnchorPane minHeight="-Infinity" prefHeight="500.0" prefWidth="500.0">
+               <children>
+         
+                      <Label layoutX="102.0" layoutY="14.0" style="-fx-font-size: 18px;" text="Upload Course Materials" />
+         
+                      <ComboBox fx:id="courseComboBox" layoutX="41.0" layoutY="74.33333587646484" onAction="#handleSelectCourse" prefWidth="300" promptText="Select Course" />
+                   <TextField fx:id="materialTitleField" layoutX="41.0" layoutY="122.0" prefWidth="300" promptText="Material Title" />
+         
+                      <HBox layoutX="75.0" layoutY="162.6666717529297" spacing="10">
+                       <TextField fx:id="filePathField" editable="false" prefWidth="200" promptText="Choose file..." />
+                       <Button onAction="#handleBrowse" text="Browse" />
+                   </HBox>
+         
+                      <Button layoutX="210.0" layoutY="209.6666717529297" onAction="#handleUpload" style="-fx-font-size: 14px;" text="Upload" />
+                  <TableView fx:id="materialView_table" layoutX="54.0" layoutY="264.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="400.0">
+                    <columns>
+                      <TableColumn fx:id="MCourse_col" prefWidth="100.0" text="course" />
+                      <TableColumn fx:id="MMaterial_col" prefWidth="150.0" text="Material" />
+                        <TableColumn fx:id="MAction_col" prefWidth="150.0" text="Actions" />
+                    </columns>
+                  </TableView>
+                   <Label fx:id="statusLabel" layoutX="200.0" layoutY="430.6666564941406" textFill="green" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</HBox>

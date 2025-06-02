@@ -1,0 +1,65 @@
+-- Create database
+CREATE DATABASE management;
+
+-- Connect to the database (run this separately in your PostgreSQL client)
+-- \c system
+
+-- Create ENUM type for role
+CREATE TYPE user_role AS ENUM ('Admin', 'Instructor', 'Student');
+
+-- 1. USERS
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL CHECK (name ~ '^[A-Za-z ]+$'),
+    email VARCHAR(100) NOT NULL UNIQUE,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    role user_role NOT NULL
+);
+
+-- 2. COURSES
+CREATE TABLE courses (
+    id SERIAL PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL CHECK (course_name ~ '^[A-Za-z ]+$'),
+    description TEXT
+);
+
+-- 3. STUDENT_ENROLLMENTS
+CREATE TABLE student_enrollments (
+    id SERIAL PRIMARY KEY,
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES users(id),
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+);
+
+-- 5. INSTRUCTOR_ASSIGNMENTS
+CREATE TABLE instructor_assignments (
+    id SERIAL PRIMARY KEY,
+    instructor_id INT NOT NULL,
+    course_id INT NOT NULL,
+    FOREIGN KEY (instructor_id) REFERENCES users(id),
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+);
+
+-- 6. MATERIALS
+CREATE TABLE materials (
+    id SERIAL PRIMARY KEY,
+    course_id INT,
+    title VARCHAR(255) CHECK (title ~ '^[A-Za-z ]+$'),
+    description TEXT,
+    uploaded_by INT,
+    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (course_id) REFERENCES courses(id),
+    FOREIGN KEY (uploaded_by) REFERENCES users(id)
+);
+
+-- 7. COURSE_MATERIALS
+CREATE TABLE course_materials (
+    id SERIAL PRIMARY KEY,
+    course_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL CHECK (title ~ '^[A-Za-z ]+$'),
+    filename VARCHAR(255) NOT NULL,
+    upload_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+);

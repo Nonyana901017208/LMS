@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+<HBox prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxgroupassignment.AdminDashboardController">
+   <children>
+       <AnchorPane prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #0f0f0f, #1a1a1a, #292929);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+           <children>
+               <Label layoutX="18.0" layoutY="20.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #39ff14;" text="Admin Dashboard" />
+
+               <Button layoutX="36.0" layoutY="121.0" onAction="#handleManageUsers" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #39ff14;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #39ff14, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Manage Users" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+
+               <Button layoutX="36.0" layoutY="171.0" onAction="#handleManageCourses" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #00ffff;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #00ffff, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Manage Courses" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+
+               <Button layoutX="36.0" layoutY="221.0" onAction="#handleAssignInstructors" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #ff00ff;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #ff00ff, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Assign Instructors" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+
+               <Button layoutX="36.0" layoutY="271.0" onAction="#handleEnrollStudents" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #ff9900;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #ff9900, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Enroll Students" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+
+               <Button layoutX="36.0" layoutY="321.0" onAction="#handleViewEnrollments" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #00ffcc;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #00ffcc, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="View Enrollments" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+
+               <Button layoutX="30.0" layoutY="448.0" onAction="#handleLogout" style="          -fx-background-color: #1a1a1a;          -fx-text-fill: #ff4d4d;          -fx-font-weight: bold;          -fx-effect: dropshadow(three-pass-box, #ff4d4d, 10, 0.7, 0, 0);          -fx-background-radius: 10;" text="Logout" />
+            <Button layoutX="20.0" layoutY="73.0" style="-fx-background-color: #1a1a1a; -fx-text-fill: red; -fx-font-weight: bold; -fx-effect: dropshadow(three-pass-box, red, 10, 0.7, 0, 0); -fx-background-radius: 10;" text="Dashbaord" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+           </children>
+       </AnchorPane>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0">
+         <children>
+            <PieChart fx:id="userRolePieChart" layoutX="131.0" layoutY="27.0" prefHeight="193.0" prefWidth="238.0" title="Users" />
+             <BarChart fx:id="courseStudentBarChart" layoutX="13.0" layoutY="240.0" prefHeight="250.0" prefWidth="476.0" title="Students per Course">
+                 <xAxis>
+                     <CategoryAxis side="BOTTOM" fx:id="xAxisCourse" />
+                 </xAxis>
+                 <yAxis>
+                     <NumberAxis fx:id="yAxisCourse" side="LEFT" />
+                 </yAxis>
+             </BarChart>
+
+            <Line endX="324.3333740234375" layoutX="165.0" layoutY="231.0" startX="-151.0" />
+             <MenuBar layoutY="2.0">
+                 <menus>
+                     <Menu mnemonicParsing="false" text="File">
+                         <items>
+                             <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" text="Close" onAction="#handleClose"/>
+                         </items>
+                     </Menu>
+                     <Menu mnemonicParsing="false" text="Edit">
+                         <items>
+                             <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" text="Delete" onAction="#handleDelete"/>
+                         </items>
+                     </Menu>
+                     <Menu mnemonicParsing="false" text="Help">
+                         <items>
+                             <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" text="About" onAction="#handleAbout"/>
+                         </items>
+                     </Menu>
+                 </menus>
+             </MenuBar>
+
+         </children></Pane>
+   </children>
+</HBox>
